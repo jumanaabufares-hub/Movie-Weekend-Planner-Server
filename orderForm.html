@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>"Movie Weekend" Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <img src="headerLogo.png" alt="Logo" width="50"> <!--abit bigger than icons width -->
+
+        <h1>"Movie Weekend" Planner</h1>
+        
+        <!-- indicate which page user on in navigation, copy hear each time -->
+        <nav> 
+            <a href="/home.html">Home</a> |
+            <a href="/orderForm.html" class="active" >Order Form</a> |
+            <a href="/statistics.html">Statistics</a>
+        </nav>
+
+        <label for="serviceSelect">Browse Movies From Streaming Service: </label>
+        
+        <select id="serviceSelect">
+            <option value="">-- Select a Service --</option>
+        </select>
+    </header>
+
+    <main>
+        <div class="service-info">
+            <h2 id="serviceName"></h2>
+            <p id="minOrder"></p>
+            <p id="serviceFee"></p>
+        </div>
+
+        <!-- Genres across top -->
+        <nav class="genres-top">
+            <ul id="genreList">
+            </ul>
+        </nav>
+
+        <!-- Movies and Order columns -->
+        <div class="columns">
+            <section class="movies-column" id="moviesColumn">
+                <h3 id="movie-list">Movies</h3>
+                <div id="moviesContainer"></div>
+            </section>
+
+            <aside class="order-column">
+                <h3>Current Order</h3>
+                <ul id="orderList"></ul>
+                <div class="order-totals">
+                    <p id="total-fees"></p>
+                    <p id="subtotal"></p>
+                    <p id="tax"></p>
+                    <p id="total"></p>
+                    <p id="minOrderMsg" class="minOrderMsg"></p>
+                    <button id="submitOrder" class="hidden">Place Order</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="interact.js"></script>
+</body>
+</html>

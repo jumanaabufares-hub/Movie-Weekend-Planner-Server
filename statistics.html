@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Statistics: "Movie Weekend" Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+    <img src="headerLogo.png" alt="Logo" width="50">
+
+    <h1>Statistics</h1>
+
+    <nav>
+        <a href="/home" >Home</a> ||
+        <a href="/order">Order Form</a> ||
+        <a href="/stats"class="active" >Statistics</a>
+    </nav>
+    <hr>
+    </header>
+
+    <main>
+        <div id="stats"></div>
+    </main>
+
+    <script>
+    async function statsPage() {
+
+        let response = await fetch("/stats-data");
+        let data = await response.json();
+
+        let div = document.getElementById("stats");
+        div.innerHTML = "";
+
+        for (let i = 0; i < data.length; i++) {
+
+            div.innerHTML +=
+                "<p>" + data[i].name + "</p>" +
+                "<p>Total Movies: " + data[i].moviesnum + "</p>" +
+                "<p>Total Revenue: $" + data[i].totalRevenue.toFixed(2) + "</p>" +
+                "<p>Average Order: $" + data[i].avgCost.toFixed(2) + "</p>" +
+                "<p>Most Ordered Movie: " + data[i].mostOrderedMovie + "</p><hr>";
+        }
+    }
+
+    window.onload = statsPage;
+    </script>
+</body>
+</html>
